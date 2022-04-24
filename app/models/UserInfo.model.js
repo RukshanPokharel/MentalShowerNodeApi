@@ -10,6 +10,9 @@ module.exports = (sequelize, Sequelize) => {
         CurrentCondition: {
             type: Sequelize.STRING
         }
+
+        // gender
+        
     });
 
     return UserInfo;

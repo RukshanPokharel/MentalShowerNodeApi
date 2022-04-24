@@ -28,6 +28,8 @@ app.get("/", (req, res) => {
 
 require("./app/routes/userinfo.routes")(app);
 require("./app/routes/inputClimateNumber.routes")(app);
+require("./app/routes/zoneInfo.routes")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

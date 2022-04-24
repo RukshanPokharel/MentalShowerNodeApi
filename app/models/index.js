@@ -14,6 +14,8 @@ db.sequelize = sequelize;
 // db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.userInfo = require("./UserInfo.model.js")(sequelize, Sequelize);
 db.inputClimateNumbers = require("./InputClimateNumbers.model.js")(sequelize, Sequelize);
+db.zoneInfo = require("./zoneInfo.model.js")(sequelize, Sequelize);
+
 
 
 module.exports = db;
