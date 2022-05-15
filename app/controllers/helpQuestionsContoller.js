@@ -15,7 +15,7 @@ exports.create = (req, res) => {
   const helpQuestions = {
    
     question: req.body.question,
-    questionNumber: req.body.questionNumber
+    questionFor: req.body.questionFor
 
   };
 

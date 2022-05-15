@@ -5,8 +5,8 @@ module.exports  = (sequelize, Sequelize) => {
         Question: {
             type: Sequelize.STRING
         },
-        QuestionNumber: {
-            type: Sequelize.INTEGER
+        QuestionFor: {
+            type: Sequelize.STRING
         }
 
     });
