@@ -2,22 +2,24 @@ const db = require("../models");
 const InputClimateNumbers = db.inputClimateNumbers;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new InputClimateNumbers
+// Create new InputClimateNumbers
 exports.create = (req, res) => {
-  // Validate request
+  // Validating client request
   if (!req.body.humidity) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
     return;
   }
-  // Create a InputClimateNumbers
+  
   const inputClimateNumbers = {
     humidity: req.body.humidity,
     temperature: req.body.temperature,
     airQuality: req.body.airQuality,
     zoneNo: req.body.zoneNo,
-    gender: req.body.gender
+    gender: req.body.gender,
+    roomNo: req.body.roomNo
+
   };
 
   // Save InputClimateNumbers in the database
@@ -33,7 +35,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all InputClimateNumbers from the database.
+// Retrieve or Get all InputClimateNumbers from the database.
 exports.findAll = (req, res) => {
     const humidity = req.query.humidity;
     var condition = humidity ? { humidity: { [Op.like]: `%${humidity}%` } } : null;
@@ -48,7 +50,7 @@ exports.findAll = (req, res) => {
         });
       });
 };
-// Find a single InputClimateNumbers with an id
+// Find a single InputClimateNumbers with an id provided.
 exports.findOne = (req, res) => {
     const id = req.params.id;
     InputClimateNumbers.findByPk(id)
@@ -67,7 +69,7 @@ exports.findOne = (req, res) => {
         });
       });
 };
-// Update a InputClimateNumbers by the id in the request
+// Update a InputClimateNumbers by the id in the request parameter
 exports.update = (req, res) => {
     const id = req.params.id;
     InputClimateNumbers.update(req.body, {
@@ -90,7 +92,7 @@ exports.update = (req, res) => {
         });
       });
 };
-// Delete a InputClimateNumbers with the specified id in the request
+// Delete a InputClimateNumbers with the specified id in the request parameter
 exports.delete = (req, res) => {
     const id = req.params.id;
     InputClimateNumbers.destroy({
@@ -129,8 +131,3 @@ exports.deleteAll = (req, res) => {
           });
         });
 };
-
-// // Find all published Tutorials
-// exports.findAllPublished = (req, res) => {
-  
-// };

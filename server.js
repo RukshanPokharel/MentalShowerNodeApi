@@ -28,7 +28,8 @@ app.get("/", (req, res) => {
 
 require("./app/routes/userinfo.routes")(app);
 require("./app/routes/inputClimateNumber.routes")(app);
-require("./app/routes/zoneInfo.routes")(app);
+require("./app/routes/helpQuestions.routes")(app);
+
 
 
 // set port, listen for requests
