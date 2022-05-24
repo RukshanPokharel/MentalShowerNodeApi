@@ -1,8 +1,14 @@
+const fs = require("fs");
 const dbconfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbconfig.Database, dbconfig.USER, dbconfig.PASSWORD, {
   host: dbconfig.HOST,
   dialect: dbconfig.dialect,
+  dialectOptions: {
+    ssl: {
+      ca: fs.readFileSync(__dirname + '/../../DigiCertGlobalRootCA.crt.pem')
+    }
+  },
   port: dbconfig.port
 });
 
